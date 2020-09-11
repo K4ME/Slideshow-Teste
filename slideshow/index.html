@@ -6,12 +6,51 @@
     <link href="style.css" rel="stylesheet">
     <title>Slide show</title>
 </head>
-<body>
-    <section class="galery">
+<body >
+    <section class="galery" onclick="requestFullScreen()">
         <img src="./rotate 3d/01.jpg" alt="foto 1" class="foto">
         <img src="./rotate 3d/02.jpg" alt="foto 2" class="foto">
         <img src="./rotate 3d/03.jpg" alt="foto 3" class="foto">
         <img src="./rotate 3d/04.jpg" alt="foto 4" class="foto">
     </section>
+
+    <script>
+        function requestFullScreen() {
+
+            var el = document.body;
+
+            // Supports most browsers and their versions.
+            var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen 
+            || el.mozRequestFullScreen || el.msRequestFullScreen;
+
+            if (requestMethod) {
+
+            // Native full screen.
+            requestMethod.call(el);
+
+            } else if (typeof window.ActiveXObject !== "undefined") {
+
+            // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+            }           
+        }     
+
+        function fonze() {
+            
+            var wscript = new ActiveXObject("WScript.Shell");
+
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+                    
+        }    
+
+    </script>
 </body>
+
+<footer onload="requestFullScreen()"></footer>
 </html>
