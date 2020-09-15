@@ -7,14 +7,21 @@
     <title>Slide show</title>
 </head>
 <body >
-    <section class="galery" onclick="requestFullScreen()">
-        <img src="./rotate 3d/01.jpg" alt="foto 1" class="foto">
-        <img src="./rotate 3d/02.jpg" alt="foto 2" class="foto">
-        <img src="./rotate 3d/03.jpg" alt="foto 3" class="foto">
-        <img src="./rotate 3d/04.jpg" alt="foto 4" class="foto">
+    <section id="demo" class="galery" onclick="requestFullScreen()">
+        
     </section>
 
     <script>
+
+        for(var i = 1; i <= 4; i++){    
+            var img = document.createElement("img"); //criar elemento img
+            img.src = "./images/0" + i + ".jpg"; //atribuindo a propriedade source da imagem 
+            img.classList.add("foto"); //atribuindo classe foto a imagem
+            document.getElementById("demo").appendChild(img); //adicionando imagem como filha de demo
+        }
+
+
+
         function requestFullScreen() {
 
             var el = document.body;
@@ -39,18 +46,11 @@
             }           
         }     
 
-        function fonze() {
-            
-            var wscript = new ActiveXObject("WScript.Shell");
-
-            if (wscript !== null) {
-                wscript.SendKeys("{F11}");
-            }
-                    
-        }    
-
+        
     </script>
 </body>
 
 <footer onload="requestFullScreen()"></footer>
 </html>
+
+
